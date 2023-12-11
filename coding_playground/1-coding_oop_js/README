@@ -1,0 +1,19 @@
+DAY 1 ====================================================================================================
+# Object oriented programming - paradigm centered around objects
+# 4 pillars
+    # Encapsulation - Reduce complexity/ INcrease reusability
+    # Abstraction - Reduce complexity + isolate impact of changes
+    # inheritence - Eliminate redundant code
+    # polymorphism - Refactor ugly switch/case statements 
+# the best functions are those with no parameters
+# Hot reloading
+# properties/ members/ instance variables
+# Methods/ functions
+# Ways to create Object in javascript
+    # Object literal syntax
+    # Factory function - If we return an object from a regular function, then it is a factory function.
+    # Constructor function - If we use 'this' keyword along with 'new' operator, then it is a constructor function.
+
+# if you forget 'new' then, function would be factory function and properties with 'this' keyword will defined on global object. In modern javascript such action gives error. In traditional js, it used to get defined on window object when 'new' was omitted or forgotten.  
+
+# Every object has 'constructor' property, whcih refers to the function that created it.
