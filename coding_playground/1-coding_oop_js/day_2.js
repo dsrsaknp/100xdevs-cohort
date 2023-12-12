@@ -58,19 +58,3 @@ const obj141 = {
 };
 let log_obj141 = obj14.display.bind(obj141, "it's just 1.4");
 log_obj141();
-
-// bind polyfill
-
-// call 
-// call polyfill
-
-// apply 
-// apply polyfill
-
-// caller
-
-// 'prototype' property of functions in js
-
-// arguments - array-ike object, not array
-
-// arguments object has property named 'callee'. Allows the anonymous functions to call recursively.
