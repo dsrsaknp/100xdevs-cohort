@@ -16,6 +16,8 @@ let logExampleName = borrowDisplay.bind(obj11); // bind creates and returns a ne
 borrowDisplay(); // 'this' points to global
 logExampleName(); // 'this' points to obj1
 
+
+
 // #1.2
 const obj12 = {
   name: "bind",
@@ -31,6 +33,8 @@ const obj121 = {
 let log_obj121 = obj12.display.bind(obj121);
 log_obj3();
 
+
+
 // #1.3
 const obj13 = {
   name: "bind",
@@ -45,6 +49,8 @@ function borrowDisplay(number) {
 }
 let logExampleName13 = borrowDisplay.bind(obj13, 3); // bind creates and returns a new function
 logExampleName13(); // 'this' points to obj1
+
+
 
 // #1.4
 const obj14 = {
