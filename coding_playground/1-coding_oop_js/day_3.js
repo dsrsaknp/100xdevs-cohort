@@ -2,14 +2,14 @@
 // // #1 - Own Property vs. prototype properties
 // //====================================================================================================
 
-// function Gadget(name, color) {
-//   this.name = name;
-//   this.color = color;
-//   this.whatAreYou = function () {
-//     return `I'm a ${this.color} ${this.name}`;
-//   };
-// }
-// const gadget1 = new Gadget("speaker", "black");
+function Gadget(name, color) {
+  this.name = name;
+  this.color = color;
+  this.whatAreYou = function () {
+    return `I'm a ${this.color} ${this.name}`;
+  };
+}
+const gadget1 = new Gadget("speaker", "black");
 
 // console.log(gadget1.constructor);
 // console.log(gadget1.constructor.prototype);
@@ -20,14 +20,14 @@
 // // add price, rating and getInfo using prototype of the constructor function.
 // // the existing object be inherit the properties added in the prototype its constructor function.
 
-// Gadget.prototype.price = 100;
-// Gadget.prototype.rating = 3;
-// Gadget.prototype.getInfo = function () {
-//   return `Rating is ${this.rating} and price is ${this.price}`;
-// };
-// Gadget.prototype.get = function (what) {
-//   return this[what];
-// };
+Gadget.prototype.price = 100;
+Gadget.prototype.rating = 3;
+Gadget.prototype.getInfo = function () {
+  return `Rating is ${this.rating} and price is ${this.price}`;
+};
+Gadget.prototype.get = function (what) {
+  return this[what];
+};
 
 // console.log(gadget1.constructor);
 // console.log(gadget1.constructor.prototype);
@@ -58,20 +58,38 @@
 // brand.name = "Himalayan";
 // console.log("new own property overwrites Prototypes's property: ", brand);
 
-// //====================================================================================================
-// // #3 - Enumerating properties of an object
-// //====================================================================================================
+//====================================================================================================
+// #3 - Enumerating properties of an object
+//====================================================================================================
 
+console.log(Object.getOwnPropertyDescriptor(gadget1, "name"));
+console.log(Object.getOwnPropertyDescriptor(gadget1, "color"));
+console.log(
+  Object.getOwnPropertyDescriptor(gadget1.constructor.prototype, "price")
+);
+console.log(Object.getOwnPropertyDescriptor(Gadget.prototype, "rating"));
+for (let property in gadget1) {
+  console.log(`${property}`);
+  // includes prototype properties as well, though non-enumerble
+}
+
+//====================================================================================================
 // #4 - isPrototypeOf
+//====================================================================================================
 
+//====================================================================================================
 // #5 - the secret __proto__ link
+//====================================================================================================
 
-// #6 -Object properties and its attributes
-let person = {
-  firstName: "Sully",
-  lastName: "Joseph",
-  age: 12,
-};
+// //====================================================================================================
+// // #6 -Object properties and its attributes
+// //====================================================================================================
+
+// let person = {
+//   firstName: "Sully",
+//   lastName: "Joseph",
+//   age: 12,
+// };
 
 // // #6.1 - Descriptor property
 // console.log(Object.getOwnPropertyDescriptor(person, "firstName"));
@@ -117,46 +135,46 @@ let person = {
 //   console.log(`${property} value is ${person[property]}`);
 // }
 
-// #6.5 - Accessor properties
-Object.defineProperty(person, "fullname", {
-  configurable: false,
-  enumerable: false,
-  get: function () {
-    return `${this.firstName} ${this.lastName}`;
-  },
-  set: function (value) {
-    let parts = value.split(" ");
-    if (Number(parts.length)) {
-      this.firstName = parts[0];
-      this.lastName = parts[parts.length - 1];
-    } else {
-      throw `Invalid name`;
-    }
-  },
-});
-person.fullName = "Timon Pumba";
-console.log(person.fullName);
+// // #6.5 - Accessor properties
+// Object.defineProperty(person, "fullname", {
+//   configurable: false,
+//   enumerable: false,
+//   get: function () {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+//   set: function (value) {
+//     let parts = value.split(" ");
+//     if (Number(parts.length)) {
+//       this.firstName = parts[0];
+//       this.lastName = parts[parts.length - 1];
+//     } else {
+//       throw `Invalid name`;
+//     }
+//   },
+// });
+// person.fullName = "Timon Pumba";
+// console.log(person.fullName);
 
-// person.fullName = "";
-// console.log(person.fullName); // UNSOLVED
+// // person.fullName = "";
+// // console.log(person.fullName); // UNSOLVED
 
-console.log(Object.getOwnPropertyDescriptor(person, "fullname"));
+// console.log(Object.getOwnPropertyDescriptor(person, "fullname"));
 
-// #6.6 - Multiple proerties
-Object.defineProperties(person, {
-  firstName: {
-    enumerable: true,
-  },
-  lastName: {
-    enumerable: true,
-  },
-  age: {
-    enumerable: true,
-  },
-  // if you add 'accessor property' fullname here, it will be converted to data property and get/ set will be replaced bby writable and value
-});
+// // #6.6 - Multiple proerties
+// Object.defineProperties(person, {
+//   firstName: {
+//     enumerable: true,
+//   },
+//   lastName: {
+//     enumerable: true,
+//   },
+//   age: {
+//     enumerable: true,
+//   },
+//   // if you add 'accessor property' fullname here, it will be converted to data property and get/ set will be replaced bby writable and value
+// });
 
-console.log(Object.getOwnPropertyDescriptor(person, "firstName"));
-console.log(Object.getOwnPropertyDescriptor(person, "lastName"));
-console.log(Object.getOwnPropertyDescriptor(person, "age"));
-console.log(Object.getOwnPropertyDescriptor(person, "fullname"));
+// console.log(Object.getOwnPropertyDescriptor(person, "firstName"));
+// console.log(Object.getOwnPropertyDescriptor(person, "lastName"));
+// console.log(Object.getOwnPropertyDescriptor(person, "age"));
+// console.log(Object.getOwnPropertyDescriptor(person, "fullname"));
