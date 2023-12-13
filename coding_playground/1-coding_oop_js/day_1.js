@@ -1,5 +1,5 @@
 // #1
-//1.1
+//1.1 ====================================================================================================
 let baseSalary = 4000000;
 let overtime = 2;
 let rate = 20;
@@ -8,7 +8,7 @@ function getWages(baseSalary, overtime, rate) {
   return baseSalary + rate * overtime;
 }
 
-//1.2
+//1.2 ====================================================================================================
 /* the best functions are those with no parameters */
 let employee = {
   baseSalary: 4000000,
@@ -19,9 +19,9 @@ let employee = {
   },
 };
 
-//====================================================================================================
 // #2 - Object literals to Factory functions
-//2.1
+// 2.1 ====================================================================================================
+
 const circle1 = {
   radius: 3,
   location: {
@@ -46,7 +46,8 @@ const circle2 = {
 
 /** let circle3 ...and so on..*/
 
-// 2.2
+// 2.2 ====================================================================================================
+
 /** Factory function */
 function createCircle(radius) {
   // camel case naming convention
@@ -61,7 +62,8 @@ function createCircle(radius) {
 const circleA = createCircle(1);
 circleA.draw();
 
-// 2.3
+// 2.3 ====================================================================================================
+
 /** Constructor function */
 function CreateCircle(radius) {
   console.log("'this' inside constructor function", this); // refers to current object
@@ -75,31 +77,31 @@ function CreateCircle(radius) {
 const circleB = new CreateCircle(5);
 circleB.draw();
 
-//====================================================================================================
 // #3 Every object has 'constructor' property, whcih refers to the function that created it.
-// 3.0
+// 3.0 ====================================================================================================
+
 console.log(circleA.constructor); // created using factory function
 console.log(circleB.constructor); // created using constructor function i.e. using new operator
 
-//3.1
+//3.1 ====================================================================================================
 const str1 = "";
 const str2 = new String();
 console.log(str1.constructor);
 console.log(str2.constructor);
 
-//3.2
+//3.2 ====================================================================================================
 function CreateString(str) {
   this.str = str;
 }
 const str3 = new CreateString("new string");
 console.log(str3.constructor);
 
-//3.3
+//3.3 ====================================================================================================
 const bool1 = false;
 const bool2 = new Boolean(false);
 console.log(bool1.constructor);
 console.log(bool2.constructor);
 
-//3.4
+//3.4 ====================================================================================================
 const num = new Number(2);
 console.log(num.constructor);

@@ -33,7 +33,14 @@ DAY 2 ==========================================================================
 
 # bind polyfill, call polyfill, apply polyfill
 
-# function properties - call, bind, apply, caller, prototype
+# function properties
+
+    - name, length, prototype, call, bind, apply, caller,
+    -  __proto__, constructor, hasOwnProperty, isPrototypeOf, propertyIsEnumerable, toString, toLocaleString, valueOf
+
+# object properties -
+
+    -  __proto__, constructor, isprototypeOf, propertyIsEnumerable, hasOwnProperty, toString, toLocaleString, valueOf
 
 # arguments - array-ike object, not array
 
@@ -48,3 +55,30 @@ DAY 2 ==========================================================================
         - Error objects - Error object
 
 # Polyfills: Implementation of features that are given by our browsers, but may not be present in the previous versions of it.
+
+DAY 3 ====================================================================================================
+
+# Refer: https://www.javascripttutorial.net/javascript-object-properties/
+
+# once you define a property as non-configurable, you cannot change it to configurable.
+
+# the enumerable attribute of all the properties defined on an object is true. t means that you can iterate over all object properties using the for...in loop
+
+# Object.defineProperty() can modify attributes of both an existing or newly defined object's property in the same method.
+
+# But the accessor properties have the [[Get]] and [[Set]] attributes instead of [[Value]] and [[Writable]].
+
+# When you read data from an accessor property, the [[Get]] function is called automatically to return a value. The default return value of the [[Get]] function is undefined.
+
+# If you assign a value to an accessor property, the [[Set]] function is called automatically.
+
+# In ES5, you can define multiple properties in a single statement using the Object.defineProperties() method.
+
+# JavaScript object property descriptor
+
+    # The  Object.getOwnPropertyDescriptor() method allows you to get the descriptor object of a property.
+    # The Object.getOwnPropertyDescriptor() method takes two arguments:
+        - An object
+        - A property of the object
+
+# if you add 'accessor property' fullname here, it will be converted to data property and get/ set will be replaced bby writable and value
