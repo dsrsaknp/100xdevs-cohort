@@ -64,17 +64,143 @@ let log_obj141 = obj14.display.bind(obj141, "it's just 1.4");
 log_obj141();
 
 // bind polyfill
+// #2.1 - without args ====================================================================================================
+const movieObj = {
+  name: "Iron man",
+  family: "Avengers",
+};
+const display = {
+  name: "Batman",
+  family: "Justice League",
+  movie: function () {
+    return `${this.name} belongs to ${this.family} family`;
+  },
+};
 
-// call
-// call polyfill
+Object.prototype.superHeroBind = function (nameObj) {
+  console.log("this inside bind: ", this);
+  console.log("nameObj: ", nameObj);
+  nameObj.addMethod = this; // this = display.family
+  return function () {
+    return nameObj.addMethod();
+  };
+};
+const movieName = display.movie.superHeroBind(movieObj);
+console.log("polyfill bind: ", movieName());
 
-// apply
-// apply polyfill
+// #2.2 - with args ===============================================================================================
+const starCast = {
+  name: "Iron man",
+  family: "Avengers",
+};
+const production = {
+  name: "Batman",
+  family: "Justice League",
+  movie: function (otherName = "Batman", otherFamily = "Justice League") {
+    return `${this.name} belongs to ${this.family} family, while ${otherName} is a ${otherFamily} family`;
+  },
+};
 
-// caller
+Object.prototype.movieBind = function (nameObj, ...args) {
+  nameObj.addMethod = this; // this = production.family
+  return function () {
+    return nameObj.addMethod(args[0], args[1]);
+  };
+};
+const film = production.movie.movieBind(starCast, "Maleficent", "Disney");
+console.log("polyfill bind: ", film());
 
-// 'prototype' property of functions in js
+// #3.1 - call ====================================================================================================
+const animals31 = {
+  species: "Dogs",
+};
 
-// arguments - array-ike object, not array
+const getAnimals31 = {
+  species: "cats",
+  displaySpecie: function () {
+    console.log(`This animal belongs to ${this.species} category`);
+  },
+};
 
-// arguments object has property named 'callee'. Allows the anonymous functions to call recursively.
+getAnimals31.displaySpecie();
+getAnimals31.displaySpecie.call(animals31);
+
+// #3.2 - call polyfill ===================================================================================================
+const animals = {
+  species: "Dogs",
+};
+
+const getAnimals = {
+  species: "cats",
+  displaySpecie: function () {
+    console.log(`This animal belongs to ${this.species} category`);
+  },
+};
+
+Object.prototype.animalCall = function (nameObj) {
+  nameObj.newMethod = this;
+  return nameObj.newMethod();
+};
+
+getAnimals.displaySpecie();
+getAnimals.displaySpecie.animalCall(animals);
+
+// #4.1 apply ====================================================================================================
+const metal41 = {
+  name: "Gold",
+};
+
+const alloy41 = {
+  name: "steel",
+  getName: function (substance = "metal41") {
+    console.log(`It's ${this.name} not a ${substance}`);
+  },
+};
+
+alloy41.getName();
+alloy41.getName.apply(metal41, ["toy"]);
+
+// #4.2 - apply polyfill =========================================================================================
+const metal = {
+  name: "Gold",
+};
+
+const alloy = {
+  name: "steel",
+  getName: function (substance = "metal") {
+    console.log(`It's ${this.name} not a ${substance}`);
+  },
+};
+
+Object.prototype.metalApply = function (nameObj, ...args) {
+  nameObj.newMethod = this;
+  return nameObj.newMethod(...args);
+};
+
+alloy.getName();
+alloy.getName.apply(metal, ["toy"]);
+
+// #5 - 'caller' property =========================================================================================
+function A() {
+  console.log(A.caller);
+}
+function B() {
+  A();
+  console.log(B.caller); // anonymous
+}
+B();
+
+// #6 - arguments - array-ike object, not array
+// ========================================================================================================
+function myFunc() {
+  console.log(arguments);
+  console.log(arguments.length);
+  console.log(typeof arguments + "\n");
+
+  for (let ele of arguments) {
+    console.log(ele);
+  }
+}
+myFunc("Rudolf", "Dasher", "Prancer", "Dancer", "Vixen", "Comet");
+
+// [DEPRECATED] - arguments object has property named 'callee'. Allows the anonymous functions to call recursively.

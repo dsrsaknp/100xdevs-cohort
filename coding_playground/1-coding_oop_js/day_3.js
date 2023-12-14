@@ -67,7 +67,7 @@ console.log(Object.getOwnPropertyDescriptor(gadget1, "color"));
 console.log(
   Object.getOwnPropertyDescriptor(gadget1.constructor.prototype, "price")
 );
-console.log(Object.getOwnPropertyDescriptor(Gadget.prototype, "rating"));
+console.log(Object.getOwnPropertyDescriptor(Gadget.prototype, "rating")); // 
 for (let property in gadget1) {
   console.log(`${property}`);
   // includes prototype properties as well, though non-enumerble
