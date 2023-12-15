@@ -84,3 +84,14 @@ DAY 3 ==========================================================================
         - A property of the object
 
 # if you add 'accessor property' fullname here, it will be converted to data property and get/ set will be replaced bby writable and value
+
+DAY 4 ====================================================================================================
+
+# Exercise - Stopwatch
+
+# **proto** vs. [[Prototype]]
+
+    # **proto** is the property of instance. Ex: obj.**proto**
+    # [[prototype]] is the property of constructor functions.
+
+# Ex. 'gadget1.**proto**' is same as writing 'gadget1.constructor.prototype'
