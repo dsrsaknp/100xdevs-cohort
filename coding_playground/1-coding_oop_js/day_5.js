@@ -291,6 +291,3 @@ const person2 = new Person();
 function Fish() {}
 mixin(Fish.prototype, canEat2, canSwim2);
 const fish2 = new Fish();
-
-// ====================================================================================================
-// #1.76 - Inheritance vs. Composition
