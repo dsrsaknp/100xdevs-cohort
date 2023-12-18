@@ -95,3 +95,16 @@ DAY 4 ==========================================================================
     # [[prototype]] is the property of constructor functions.
 
 # Ex. 'gadget1.**proto**' is same as writing 'gadget1.constructor.prototype'
+
+DAY 7 ====================================================================================================
+
+# Hoisting - function declarationn are hoisted but function expressions are not.
+
+            - class declaration ad class expression not hoisted
+
+# static method inside a class does not exists inside the object but, the class.
+
+# ES6 internally follows 'use strict'
+
+# In ES6 class syntax, private properties and methods using symbols and weakmaps.
+
