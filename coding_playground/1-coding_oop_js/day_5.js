@@ -232,7 +232,9 @@ const canSwim = {
 const person = Object.assign({}, canWalk, canEat);
 const fish = Object.assign({}, canEat, canSwim);
 
-// #1.8
+
+// ====================================================================================================
+// #1.7
 
 const canWalk1 = {
   walk: function () {
@@ -258,8 +260,9 @@ const person1 = Object.assign(Person.prototype, canWalk, canEat);
 function Fish() {}
 const fish1 = Object.assign(Fish.prototype, canEat, canSwim);
 
-// #1.9
 
+// ====================================================================================================
+// #1.8
 function mixin(targetObj, ...methods) {
   Object.assign(targetObj, ...methods);
 }
