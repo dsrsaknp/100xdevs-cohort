@@ -108,3 +108,19 @@ DAY 7 ==========================================================================
 
 # In ES6 class syntax, private properties and methods using symbols and weakmaps.
 
+# Symbol() returns a unique identifier. Do not use new Symbol(), that's a constructor.
+
+# Weakmap is a dictionary with keys as objects and value as anything. The term 'weak' means if a key (i.e.object) is unreferenced, then it will be garbage collected.
+
+# Use new Weakmap()
+
+# Modules
+
+- No modules in ES5
+
+  Types of module formats:
+
+- AMD: Asynchronous Module Definition
+- Common Js
+- UMD: Universal Module Definition
+- ES6 Modules
