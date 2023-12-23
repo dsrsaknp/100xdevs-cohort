@@ -58,7 +58,7 @@
 
 10. [DEPRECATED] - arguments object has property named 'callee'. Allows the anonymous functions to call recursively.
 
-# DAY 3 ====================================================================================================
+# DAY 3 
 
 1. Refer: https://www.javascripttutorial.net/javascript-object-properties/
 
