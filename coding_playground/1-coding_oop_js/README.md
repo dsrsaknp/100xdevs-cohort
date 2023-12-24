@@ -125,7 +125,7 @@
 - UMD: Universal Module Definition
 - ES6 Modules
 
-11. there's no et ot const in ES5
+11. there's no let or const in ES5
 
 12. Babel is a transpiler, used to translate the js codeinto ES5 supported version for cross browser compatibility.
 
