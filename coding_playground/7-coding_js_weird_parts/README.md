@@ -18,13 +18,14 @@
 6. Never set variable to undefined manually as then we cannot figure out whether it has been set by hoisting or devloper, hence it's good not to do so for debugging purposes.
 
 7. Execution context execution phase
+
 - Every function creates execution context- makes uo an execution stack. When an execution context i finished, it is popped off the stack.
 
 8. Lexical environment - where the code sits physically i.e. globally.
 
 9. ES6 or ES2015 onwards, variables are declared using let and const. Follows TDZ, means variables exist in memory space but not allowed to use.
 
+10. Function currying
 
-# Day 2
-
-1. 
+- Creating a copy of a function but with some preset parameters.
+- Very useful in mathematical situations such as when writing a library.
