@@ -1,36 +1,66 @@
-// #Functional Programming
+// // #Functional Programming
 
-// #1 - ES6 .map() method
+// // #1 - ES6 .map() method
 
-// multiply by two
-function map(args) {
-  let newArr = [];
+// // multiply by two
+// function map(args, cb) {
+//   let newArr = [];
+//   for (let ele of args) {
+//     newArr.push(cb(ele));
+//   }
+//   return newArr;
+// }
+
+// function mapFunc(ele) {
+//   return ele * 2;
+// }
+
+// console.log(map([1, 2, 3, 4, 5], mapFunc));
+
+// // #2 - ES6 filter method
+
+// function filter(args, cb) {
+//   let newArr = [];
+//   for (let index in args) {
+//     let val = cb(args[index], index);
+//     if (val) newArr.push(val);
+//   }
+//   return newArr;
+// }
+
+// function filterFunc(ele, i) {
+//   if (ele > 12) return ele;
+// }
+
+// console.log(filter([10, 11, 12, 13, 14, 15, 16], filterFunc));
+
+// #3
+const arr1 = [1, 2, 3, 4, 5, 6, 7];
+function mapForEach(args, fn) {
+  const newArr = [];
   for (let ele of args) {
-    newArr.push(mapFunc(ele));
+    newArr.push(fn(ele));
   }
   return newArr;
 }
-
-function mapFunc(ele) {
-  return ele * 2;
+function checkForLimit(limiter, item) {
+  return item > limiter;
 }
 
-console.log(map([1, 2, 3, 4, 5]));
+const arr2 = mapForEach(arr1, checkForLimit.bind(this, 4));
+console.log(arr2);
 
-// #2 - ES6 filter method
+var checkForLimitSimplified = function (limiter) {
+  return function (limiter, item) {
+    return item > limiter;
+  }.bind(this, limiter); //seeing bind here means a preset parameter
+};
 
-function filter(args) {
-  let newArr = [];
-  for (let index in args) {
-    let val = filterFunc(args[index], index);
-    if (val) newArr.push(val);
-  }
-  return newArr;
+const arr5 = mapForEach(arr1, checkForLimitSimplified(4));
+console.log(arr5);
+
+// when called, fn becomes equivalent to following
+function fn(item) {
+  let limiter = 4;
+  return item > limiter;
 }
-
-function filterFunc(ele, i) {
-  if (ele > 12) return ele;
-}
-
-console.log(filter([10, 11, 12, 13, 14, 15, 16]));
-
