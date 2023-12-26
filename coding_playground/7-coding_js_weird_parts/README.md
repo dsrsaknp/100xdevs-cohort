@@ -40,8 +40,8 @@
 
 We now want to implement currying i.e. we want to invoke this function for different cases but with parameter1 as fixed, then syntax will be as below:
 
-- <function_name>.bind(this, parameter1) 
-where, parameter1 is a preset parameter
+- <function_name>.bind(this, parameter1)
+  where, parameter1 is a preset parameter
 
 The above syntax is equivalent to the following:
 
@@ -57,3 +57,9 @@ Walkthrough:
 - A function called with bind will create a copy of function and set the initial parameter passed.
 - This function is invoked later with other parameters.
 - This invoked function will now have parameter1 as preset value for every copy of function generation on its subsequent invocation.
+
+# DAY 3
+
+1. For efficiency purposes, the method should be defined as constructor function's Prototype.
+
+- If we declare the method as a object's properties, then each object will take extra space for the method. Suppose, if there are thousands objects, then there will be thousand methods space created in memory as opposed to once when defined on the constructor function's prototype.
