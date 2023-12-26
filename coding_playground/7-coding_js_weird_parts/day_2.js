@@ -1,38 +1,38 @@
-// // #Functional Programming
+// #Functional Programming
 
-// // #1 - ES6 .map() method
+// #1 - ES6 .map() method
 
-// // multiply by two
-// function map(args, cb) {
-//   let newArr = [];
-//   for (let ele of args) {
-//     newArr.push(cb(ele));
-//   }
-//   return newArr;
-// }
+// multiply by two
+function map(args, cb) {
+  let newArr = [];
+  for (let ele of args) {
+    newArr.push(cb(ele));
+  }
+  return newArr;
+}
 
-// function mapFunc(ele) {
-//   return ele * 2;
-// }
+function mapFunc(ele) {
+  return ele * 2;
+}
 
-// console.log(map([1, 2, 3, 4, 5], mapFunc));
+console.log(map([1, 2, 3, 4, 5], mapFunc));
 
-// // #2 - ES6 filter method
+// #2 - ES6 filter method
 
-// function filter(args, cb) {
-//   let newArr = [];
-//   for (let index in args) {
-//     let val = cb(args[index], index);
-//     if (val) newArr.push(val);
-//   }
-//   return newArr;
-// }
+function filter(args, cb) {
+  let newArr = [];
+  for (let index in args) {
+    let val = cb(args[index], index);
+    if (val) newArr.push(val);
+  }
+  return newArr;
+}
 
-// function filterFunc(ele, i) {
-//   if (ele > 12) return ele;
-// }
+function filterFunc(ele, i) {
+  if (ele > 12) return ele;
+}
 
-// console.log(filter([10, 11, 12, 13, 14, 15, 16], filterFunc));
+console.log(filter([10, 11, 12, 13, 14, 15, 16], filterFunc));
 
 // #3
 const arr1 = [1, 2, 3, 4, 5, 6, 7];
