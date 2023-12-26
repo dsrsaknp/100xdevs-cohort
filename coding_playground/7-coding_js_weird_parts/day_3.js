@@ -1,28 +1,28 @@
-// // Object-orientation and Prototype
+// Object-orientation and Prototype
 
-// // #1
-// console.log("#[1]");
-// function Person(firstname, lastname) {
-//   return "RETURNED";
-//   this.firstname = firstname;
-//   this.lastname = lastname;
-//   console.log("This is Person constructor function");
-// }
+// #1
+console.log("#[1]");
+function Person(firstname, lastname) {
+  return "RETURNED";
+  this.firstname = firstname;
+  this.lastname = lastname;
+  console.log("This is Person constructor function");
+}
 
-// const jack = new Person("Jack", "Doe");
-// console.log(jack);
+const jack = new Person("Jack", "Doe");
+console.log(jack);
 
-// // #1.1
-// console.log("#[1.1]");
-// function Person1(firstname, lastname) {
-//   this.firstname = firstname;
-//   this.lastname = lastname;
-//   console.log("This is Person constructor function");
-//   return "RETURNED";
-// }
+// #1.1
+console.log("#[1.1]");
+function Person1(firstname, lastname) {
+  this.firstname = firstname;
+  this.lastname = lastname;
+  console.log("This is Person constructor function");
+  return "RETURNED";
+}
 
-// const jill = new Person1("Jill", "Doe");
-// console.log(jill);
+const jill = new Person1("Jill", "Doe");
+console.log(jill);
 
 // #2
 console.log("#[2]");
