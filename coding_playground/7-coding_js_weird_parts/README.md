@@ -33,22 +33,26 @@
 # DAY 2
 
 1. Let's say we have a function as follows:
-   function <function_name> (<parameter1>, <paramenter2>) {
-   return <parameter1> + <parameter2>
-   }
+
+- function <function_name> (<parameter1>, <paramenter2>) {
+  return <parameter1> + <parameter2>
+  }
 
 We now want to implement currying i.e. we want to invoke this function for different cases but with parameter1 as fixed, then syntax will be as below:
-<function_name>.bind(this, <parameter1>), where <parameter1> will be preset parameter
+
+- <function_name>.bind(this, <parameter1>), where <parameter1> will be preset parameter
 
 The above syntax is equivalent to the following:
-function <function_name>() {
-let parameter1 = <passed_value>;
-return <some_js_expression>;
-}
+
+- function <function_name>() {
+  let parameter1 = <passed_value>;
+  return <some_js_expression>;
+  }
 
 Now when this function's definition is called, it will be called with the second parameter while it will already contain the first parameter.
 
 Walkthrough:
-a) A function called with bind will create a copy of function and set the initial parameter passed.
-b) This function is invoked later with other parameters.
-c) This invoked function will now have parameter1 as preset value for every copy of function generation on its subsequent invocation. 
+
+- A function called with bind will create a copy of function and set the initial parameter passed.
+- This function is invoked later with other parameters.
+- This invoked function will now have parameter1 as preset value for every copy of function generation on its subsequent invocation.
