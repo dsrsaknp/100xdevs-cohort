@@ -63,3 +63,11 @@ Walkthrough:
 1. For efficiency purposes, the method should be defined as constructor function's Prototype.
 
 - If we declare the method as a object's properties, then each object will take extra space for the method. Suppose, if there are thousands objects, then there will be thousand methods space created in memory as opposed to once when defined on the constructor function's prototype.
+
+2. Js uses the convention of capitalising the first letter of the contructor function.
+
+3. Number, String, etc. creates objects, not primitives as it looks.
+
+4. Polyfill: Code that adds feature which the engine may lack.
+
+5. Browsers not supporting strict mode will run strict mode code with different behavior from browsers that do, so don't rely on strict mode without feature-testing for support for the relevant aspects of strict mode.
