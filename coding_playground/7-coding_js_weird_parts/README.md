@@ -71,3 +71,9 @@ Walkthrough:
 4. Polyfill: Code that adds feature which the engine may lack.
 
 5. Browsers not supporting strict mode will run strict mode code with different behavior from browsers that do, so don't rely on strict mode without feature-testing for support for the relevant aspects of strict mode.
+
+
+# Day 4
+
+1. Structure safe code - use IIFE
+2. 
