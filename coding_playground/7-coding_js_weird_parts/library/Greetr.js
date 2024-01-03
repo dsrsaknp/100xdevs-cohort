@@ -1,80 +1,56 @@
-// (function (global, $) {
-//   var Greetr = function (firstname, lastname, language) {
-//     return new Greetr.init(firstname, lastname, language);
-//   };
-
-//   var supported_lang = ["en", "es"];
-
-//   var greetings = {
-//     en: "Hello",
-//     es: "Hola",
-//   };
-
-//   var formalGreetings = {
-//     en: "Greetings",
-//     es: "Saludos",
-//   };
-
-//   Greetr.prototype = {};
-
-//   Greetr.init = function (firstname, lastname, language) {
-//     var self = this;
-//     self.firstname = firstname || "";
-//     self.lastname = lastname || "";
-//     self.language = language || "en";
-//   };
-
-//   Greetr.init.protoytpe = Greetr.prototype;
-
-//   global.Greetr = global.G$ = Greetr;
-// })(window, jQuery);
-
 (function Greetr(global, $) {
+  // created Greetr wrapper fuction that returns instantiated Greetr.init object
   var Greetr = function (firstname, lastname, language) {
     return new Greetr.init(firstname, lastname, language);
   };
 
+  // An array containing the supported languages
   var supportedLangs = ["en", "es"];
 
+  // Informal greetings object containing messages for every language
   var greetings = {
     en: "Hello",
     es: "Hola",
   };
 
+  // Formal greetings object containing messages for each language
   var formalGreetings = {
     en: "Greetings",
     es: "Saludos",
   };
 
+  // object containing logged messages in each language
   var logMessages = {
     en: "Logged in",
     es: "Inició sesión",
   };
 
+  // Created a protoytpe object that is pointed by the Greetr.init constructor function.
+  // containing methods
+
   Greetr.prototype = {
-    // 1
     fullname: function () {
-      return this.firstname + " " + this.lastname ;
+      return this.firstname + " " + this.lastname;
     },
 
-    // 2
+    // Validates whether the language contains supported languages
     validate: function () {
       if (supportedLangs.indexOf(this.language) === -1) {
         throw "Invalid language";
       }
     },
 
-    //3
+    // informal greeting with the firstname
     greeting: function () {
       return greetings[this.language] + " " + this.firstname + "!";
     },
 
-    //4
+    // formal greeting with the fullname
     formalGreeting: function () {
       return formalGreetings[this.language] + ", " + this.fullname();
     },
 
-    //5
+    // Greet based on parameter passed
     greet: function (formal) {
       var msg;
       if (formal) {
@@ -90,30 +66,55 @@
       return this;
     },
 
-    //6
+    // logger messages
     log: function () {
       if (console) {
-        console.log(logMessages[this.language] + " " + this.fullname());
+        console.log(logMessages[this.language] + ": " + this.fullname());
       }
       return this;
     },
 
-    //7
+    // set/ change the language
     setLang: function (lang) {
+      // set the language
       this.language = lang;
+      // validate the language
       this.validate();
+      // making this method chainable by returning this
+      return this;
+    },
+
+    // this function takes html element as selector where the greeting would be displayed.
+    HTMLGreeting: function (selector, formal) {
+      if (!$) {
+        throw "jQuery not loaded";
+      }
+      if (!selector) {
+        throw "Missing jQuery selector";
+      }
+      var msg;
+      if (formal) {
+        msg = this.formalGreeting();
+      } else {
+        msg = this.greeting();
+      }
+      $(selector).html(msg);
       return this;
     },
   };
 
+  // constructor function
   Greetr.init = function (firstname, lastname, language) {
     self = this;
     self.firstname = firstname || "";
     self.lastname = lastname || "";
     self.language = language || "en";
+    self.validate();
   };
 
+  // assigning the prototype object
   Greetr.init.prototype = Greetr.prototype;
 
+  // 'global' here is a global object where we attach Greetr as a property, which will then become accessible globally.
   global.Greetr = global.G$ = Greetr;
 })(window, jQuery);
