@@ -74,7 +74,7 @@
       return this;
     },
 
-    // set/ change the language
+    // set or change the language
     setLang: function (lang) {
       // set the language
       this.language = lang;
@@ -84,7 +84,7 @@
       return this;
     },
 
-    // this function takes html element as selector where the greeting would be displayed.
+    // function that takes html element as selector where the greeting would be displayed.
     HTMLGreeting: function (selector, formal) {
       if (!$) {
         throw "jQuery not loaded";
