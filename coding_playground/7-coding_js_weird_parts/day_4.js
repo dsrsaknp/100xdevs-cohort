@@ -25,7 +25,6 @@ var CustomPromise = function (cb) {
     state = FULFILLED;
     value = val;
     handlers.forEach((h) => h(value));
-    // console.log("[1] " + handlers);
   }
 
   function reject(val) {
@@ -33,45 +32,46 @@ var CustomPromise = function (cb) {
     if (state !== PENDING) return;
     state = REJECTED;
     value = val;
-    handlers.forEach((c) => c(value));
-    // console.log("[2] " + catchers);
+    // catchers.push(handlers.pop());
+    catchers.forEach((c) => c(value));
   }
 
   this.then = function (callback) {
     console.log(3);
     if (state === FULFILLED) {
       callback(value);
-    } else if (state === REJECTED) {
-      return this;
-    } else {
+    }
+    // else if (state === REJECTED) {
+    //   return this;
+    // }
+    else {
       console.log(3.1);
       handlers.push(callback);
     }
   };
 
-  this.catch = function (callback) {
-    console.log(4);
-    if (state === REJECTED) {
-      callback(value);
-    } else {
-      console.log(4.1);
-      handlers.push(callback);
-    }
-  };
+  //   this.catch = function (callback) {
+  //     console.log(4);
+  //     if (state === REJECTED) {
+  //       callback(value);
+  //     } else {
+  //       console.log(4.1);
+  //       catchers.push(callback);
+  //     }
+  //   };
 
   cb(resolve, reject);
 };
 
 new CustomPromise((res, rej) => {
   setTimeout(() => {
-    // res("New custom promise created!");
-    rej("Rejected promise.");
+    res("New custom promise created!");
+    // rej("Rejected promise.");
   }, 2000);
-  //   rej("Rejected promise.");
 })
   .then((val) => {
     console.log("Promise resolved: ", val);
   })
-  .catch((err) => {
-    console.log("ERROR: ", err);
-  });
+//   .catch((err) => {
+//     console.log("ERROR: ", err);
+//   });
