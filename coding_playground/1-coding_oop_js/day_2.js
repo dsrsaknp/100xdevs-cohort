@@ -1,5 +1,5 @@
 // bind
-// #1.1 ====================================================================================================
+// #1.1
 
 const obj11 = {
   name: "bind",
@@ -17,7 +17,7 @@ let logExampleName = borrowDisplay.bind(obj11); // bind creates and returns a ne
 borrowDisplay(); // 'this' points to global
 logExampleName(); // 'this' points to obj1
 
-// #1.2 ====================================================================================================
+// #1.2
 
 const obj12 = {
   name: "bind",
@@ -33,7 +33,7 @@ const obj121 = {
 let log_obj121 = obj12.display.bind(obj121);
 log_obj3();
 
-// #1.3 ====================================================================================================
+// #1.3
 
 const obj13 = {
   name: "bind",
@@ -49,7 +49,7 @@ function borrowDisplay(number) {
 let logExampleName13 = borrowDisplay.bind(obj13, 3); // bind creates and returns a new function
 logExampleName13(); // 'this' points to obj1
 
-// #1.4 ====================================================================================================
+// #1.4
 
 const obj14 = {
   name: "bind",
@@ -64,7 +64,7 @@ let log_obj141 = obj14.display.bind(obj141, "it's just 1.4");
 log_obj141();
 
 // bind polyfill
-// #2.1 - without args ====================================================================================================
+// #2.1 - without args
 const movieObj = {
   name: "Iron man",
   family: "Avengers",
@@ -88,7 +88,7 @@ Object.prototype.superHeroBind = function (nameObj) {
 const movieName = display.movie.superHeroBind(movieObj);
 console.log("polyfill bind: ", movieName());
 
-// #2.2 - with args ===============================================================================================
+// #2.2 - with args
 const starCast = {
   name: "Iron man",
   family: "Avengers",
@@ -110,7 +110,7 @@ Object.prototype.movieBind = function (nameObj, ...args) {
 const film = production.movie.movieBind(starCast, "Maleficent", "Disney");
 console.log("polyfill bind: ", film());
 
-// #3.1 - call ====================================================================================================
+// #3.1 - call
 const animals31 = {
   species: "Dogs",
 };
@@ -125,7 +125,7 @@ const getAnimals31 = {
 getAnimals31.displaySpecie();
 getAnimals31.displaySpecie.call(animals31);
 
-// #3.2 - call polyfill ===================================================================================================
+// #3.2 - call polyfill
 const animals = {
   species: "Dogs",
 };
@@ -145,7 +145,7 @@ Object.prototype.animalCall = function (nameObj) {
 getAnimals.displaySpecie();
 getAnimals.displaySpecie.animalCall(animals);
 
-// #4.1 apply ====================================================================================================
+// #4.1 apply
 const metal41 = {
   name: "Gold",
 };
@@ -160,7 +160,7 @@ const alloy41 = {
 alloy41.getName();
 alloy41.getName.apply(metal41, ["toy"]);
 
-// #4.2 - apply polyfill =========================================================================================
+// #4.2 - apply polyfill
 const metal = {
   name: "Gold",
 };
@@ -180,7 +180,7 @@ Object.prototype.metalApply = function (nameObj, ...args) {
 alloy.getName();
 alloy.getName.apply(metal, ["toy"]);
 
-// #5 - 'caller' property =========================================================================================
+// #5 - 'caller' property
 function A() {
   console.log(A.caller);
 }
@@ -191,7 +191,6 @@ function B() {
 B();
 
 // #6 - arguments - array-ike object, not array
-// ========================================================================================================
 function myFunc() {
   console.log(arguments);
   console.log(arguments.length);
@@ -202,5 +201,3 @@ function myFunc() {
   }
 }
 myFunc("Rudolf", "Dasher", "Prancer", "Dancer", "Vixen", "Comet");
-
-// [DEPRECATED] - arguments object has property named 'callee'. Allows the anonymous functions to call recursively.
