@@ -34,7 +34,7 @@
 
 # DAY 2
 
-1.  bind, call and apply - Allow your object(first parameter) to borrow methods from other objects and invoke them as their own.
+1.  bind, call and apply - Allows an object to borrow methods from other objects and invoke them as their own. The borrower object is passed as first parameter followed by optional arguments.
 
 2.  bind polyfill, call polyfill, apply polyfill
 
@@ -51,7 +51,7 @@
 
 6.  arguments object has property named 'callee'. Allows the anonymous functions to call recursively.
 
-7.  Suppose, F is function. It will have a prototype property by default -> it contains an object -> useful only if this function is used as a constructor -> any object created using this constructor function will have access to the properties of "F.prototype -> some_obj", as if it were its own.
+7.  Suppose, F is function. It will have a prototype property by default -> it contains an object -> useful only if this function is used as a constructor -> any object created using this constructor function will have access to the properties of "F.prototype -> some_obj", as if it were its own (prototypal inheritance concept - mentioned ahead).
 
 8.  Built-in objects as divided into 3 categories:
 
@@ -67,11 +67,17 @@
 
 1. Refer: https://www.javascripttutorial.net/javascript-object-properties/
 
-2. Once you have defined an object's property as non-configurable, you cannot change it to configurable.
+2. Ther are 2 types of object properties:
 
-3. The enumerable attribute of all the properties defined on an object is true by default. It means that you can iterate over all object properties using the for...in loop
+   - Data property
+   - Accessor property
+
+3. When an object literal is created, it has its property attibutes - [[configurable]], [[enumerable]] and [[writable]] set to true by default.
 
 4. Object.defineProperty() can modify attributes of both an existing or newly defined object's property in the same method.
+
+   - When a property is newly defined using this method, then all the attributes [[configurable]], [[enumerable]] and [[writable]] are set to false by default.
+   - Once you have defined an object's property as non-configurable, you cannot change it to configurable.
 
 5. But the accessor properties have the [[Get]] and [[Set]] attributes instead of [[Value]] and [[Writable]].
 
@@ -99,13 +105,13 @@
    - **proto** is the property of instance. Ex: obj.**proto**
    - [[prototype]] is the property of constructor functions.
 
-3. Ex. 'gadget1.**proto**' is same as writing 'gadget1.constructor.prototype'
+3. Ex. 'Gadget1.prototype' is same as writing 'gadget1.constructor.prototype'
 
 # DAY 7
 
 1. Hoisting
 
-- function declarationn are hoisted but function expressions are not.
+- function declaration are hoisted but function expressions are not.
 - class declaration ad class expression not hoisted
 
 2. static method inside a class does not exists inside the object but, the class.
@@ -120,7 +126,7 @@
 
 7. Use new Weakmap()
 
-8. Modules concept was introduced in ES6 or Ecmascri pt2015.
+8. Modules concept was introduced in ES6 or Ecmascript 2015.
 
 9. There is no concept of modules in ES5.
 
@@ -135,4 +141,4 @@
 
 12. Babel is a transpiler, used to translate the js codeinto ES5 supported version for cross browser compatibility.
 
-13. Every js file is translated by babel nd doding it manually is not possible, hence we use bundling of js files using webpack, which enables every file to be transpiled by babel before bundling.
+13. Every js file is translated by babel and coding it manually is not possible, hence we use bundling of js files using webpack, which enables every file to be transpiled by babel before bundling.
