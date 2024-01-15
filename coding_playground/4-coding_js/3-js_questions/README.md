@@ -5,4 +5,4 @@
   [refer [1] in question3.js]
 
 2. '.push' method mutates arrays and objects. Use spread operator instead.
-3.
+3. We cannot sort objects, but we can sort the properties inside those objects.
