@@ -67,7 +67,7 @@ const curriedSum = curry1((a, b, c) => a + b + c);
 console.log("partially executed ", curriedSum(1));
 console.log("partially executed ", curriedSum(1)(2));
 console.log(curriedSum(1)(2, 3));
-console.log(curriedSum(1)(2, 3)(4));
+// console.log(curriedSum(1)(2, 3)(4));
 
 // #4.3***
 const curry2 = function (fn) {
