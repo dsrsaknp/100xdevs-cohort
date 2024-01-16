@@ -6,3 +6,11 @@
 
 2. '.push' method mutates arrays and objects. Use spread operator instead.
 3. We cannot sort objects, but we can sort the properties inside those objects.
+4. Array(10) is same as writing => new Array(10). Creates an empty array of length 10;
+5. 
+
+
+
+# Efficient Code snippets:
+
+1.  [...Array(end - start + 1).keys()].map((el) => el + start);
