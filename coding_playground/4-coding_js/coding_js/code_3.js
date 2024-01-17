@@ -24,7 +24,7 @@ console.log(Object.getPrototypeOf(mary));
 console.log(Object.getPrototypeOf(mary) === person);
 
 // #2 =======================================================================================================
-// above implementation using js constructor function
+// Above code implementation using js constructor function
 
 function Person(family, place) {
   this.family = family;
