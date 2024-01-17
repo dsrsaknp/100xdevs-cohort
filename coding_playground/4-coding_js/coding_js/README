@@ -1,2 +1,4 @@
-# https://www.tutorialspoint.com/finding-the-time-elapsed-in-javascript
-# 
+1. https://www.tutorialspoint.com/finding-the-time-elapsed-in-javascript
+2. Difference between using Object.create and Object.assign in code_3.js, example - #1 is that, 
+    - Object.create() delegates the object 'person' as a prototype object.
+    - Object.assign() delegates the object 'person' as a normal object. 
